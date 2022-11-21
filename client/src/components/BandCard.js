@@ -1,7 +1,16 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group, Flex } from '@mantine/core';
 
 const BandCard = ({ band }) => {
+
+  let history = useHistory();
+
+  // function viewBand(id) {
+  //   history.push(`/bands/${id}`)
+  // }
+
     return (
       <Flex
       gap="xl"
@@ -19,7 +28,7 @@ const BandCard = ({ band }) => {
           </Card.Section>
 
           <Group position="apart" mt="md" mb="xs">
-            <Text weight={500}>{band.name}</Text>
+            <Text weight={500}><Link exact to={`/bands/${band.id}`}>{band.name}</Link></Text>
             <Badge color="red" variant="light">
             {band.genre}
             </Badge>

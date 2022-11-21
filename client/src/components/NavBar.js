@@ -12,7 +12,7 @@ function NavBar() {
         <NavLink to="/concerts">Concerts</NavLink>
       </Button>
       <Button>
-        <NavLink to="/bands">Bands</NavLink>
+        <NavLink exact to="/bands">Bands</NavLink>
       </Button>
       <Button>
         <NavLink to="/profile">Profile</NavLink>

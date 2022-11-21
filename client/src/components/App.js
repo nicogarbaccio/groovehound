@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Switch, Route, NavLink } from "react-router-dom";
-import NavBar from "./NavBar";
-import SearchBar from "./SearchBar";
+import BandPage from "./BandPage";
 import Home from "./Home";
 import Bands from "./Bands";
 import Profile from "./Profile";
@@ -24,7 +23,7 @@ function App() {
   const [showUserConcerts, setShowUserConcerts] = useState(false);
 
   const history = useHistory();
-  console.log("hello", user);
+  let id = useParams();
 
   console.log(bands);
   console.log(concerts);
@@ -115,7 +114,7 @@ function App() {
             Concerts
           </NavLink>
           <br></br>
-          <NavLink to="/bands" className="underline-style">
+          <NavLink exact to="/bands" className="underline-style">
             Bands
           </NavLink>
           <br></br>
@@ -184,7 +183,7 @@ function App() {
               setShowUserConcerts={setShowUserConcerts}
             />
           </Route>
-          <Route path="/bands">
+          <Route exact path="/bands">
             <Bands
               filteredBands={displayedBands}
               featuredBands={bands}
@@ -212,6 +211,9 @@ function App() {
             <SignUp
             // user state to be added
             />
+          </Route>
+          <Route path="/bands/:id">
+            <BandPage />
           </Route>
         </Switch>
       </div>
